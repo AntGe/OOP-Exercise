@@ -1,0 +1,5 @@
+C:\Programming\School\Photo album\bin\Debug\Photo album.exe.config
+C:\Programming\School\Photo album\bin\Debug\Photo album.exe
+C:\Programming\School\Photo album\bin\Debug\Photo album.pdb
+C:\Programming\School\Photo album\obj\Debug\Photo album.exe
+C:\Programming\School\Photo album\obj\Debug\Photo album.pdb

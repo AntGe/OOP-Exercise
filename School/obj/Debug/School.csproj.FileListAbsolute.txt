@@ -1,0 +1,6 @@
+C:\Programming\School\School\bin\Debug\School.exe.config
+C:\Programming\School\School\bin\Debug\School.exe
+C:\Programming\School\School\bin\Debug\School.pdb
+C:\Programming\School\School\obj\Debug\School.csprojResolveAssemblyReference.cache
+C:\Programming\School\School\obj\Debug\School.exe
+C:\Programming\School\School\obj\Debug\School.pdb
