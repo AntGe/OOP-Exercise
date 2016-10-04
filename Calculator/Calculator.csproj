@@ -43,9 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addition.cs" />
+    <Compile Include="BasicCommandDispatcher.cs" />
+    <Compile Include="Division.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="ICommandDispatcher.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Multiplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subtraction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

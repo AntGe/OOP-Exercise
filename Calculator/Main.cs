@@ -10,7 +10,8 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            Core core = new Core();
+            BasicCommandDispatcher dispatcher = new BasicCommandDispatcher();
+            Core core = new Core(dispatcher);
             core.Run();
 
         }

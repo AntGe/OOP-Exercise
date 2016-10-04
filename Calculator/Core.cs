@@ -8,9 +8,9 @@ namespace Calculator
 {
     class Core
     {
-        public Core()
+        public Core(ICommandDispatcher Dispatcher)
         {
-
+            this.Dispatcher = Dispatcher;
         }
         public void Run()
         {
@@ -19,46 +19,43 @@ namespace Calculator
             string input = "";
             while (input != "END")
             {
-                Console.WriteLine("Enter first number :");
-                a = decimal.Parse(Console.ReadLine());
-                Console.WriteLine("Enter second number :");
-                b = decimal.Parse(Console.ReadLine());
-                Console.WriteLine("What do you want to do with them?");
-                Console.WriteLine("a - addition\ns - subtraction\nm - multiplication");
-                input = Console.ReadLine();
-                switch (input)
+                try
                 {
-                    case "a":
-                        Console.WriteLine(Addition(a,b));
-                        break;
-                    case "s":
-                        Console.WriteLine(Subtraction(a, b));
-                        break;
-                    case "m":
-                        Console.WriteLine(Multiplication(a, b));
-                        break;
-                    case "d":
-                        Console.WriteLine(Division(a, b));
-                        break;
+                    Console.WriteLine("Enter first number :");
+                    a = decimal.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter second number :");
+                    b = decimal.Parse(Console.ReadLine());
+                    Console.WriteLine("What do you want to do with them?");
+                    Console.WriteLine("a - addition\ns - subtraction\nm - multiplication\nd - division");
+                    input = Console.ReadLine();
+                    ICommand command = null;
+                    switch (input)
+                    {
+                        case "a":
+                            command = this.Dispatcher.Commands.Where(c => c.Name == "addition").SingleOrDefault();
+                            command.Act(a, b);
+                            break;
+                        case "s":
+                            command = this.Dispatcher.Commands.Where(c => c.Name == "subtraction").SingleOrDefault();
+                            command.Act(a, b);
+                            break;
+                        case "m":
+                            command = this.Dispatcher.Commands.Where(c => c.Name == "multiplication").SingleOrDefault();
+                            command.Act(a, b);
+                            break;
+                        case "d":
+                            command = this.Dispatcher.Commands.Where(c => c.Name == "division").SingleOrDefault();
+                            command.Act(a, b);
+                            break;
+
+                    }
 
                 }
+                catch (Exception)
+                {                    
+                }                
             }
         }
-        private decimal Addition(decimal a, decimal b)
-        {
-            return a + b;
-        }
-        private decimal Subtraction(decimal a, decimal b)
-        {
-            return a - b;
-        }
-        private decimal Multiplication(decimal a, decimal b)
-        {
-            return a * b;
-        }
-        private decimal Division(decimal a, decimal b)
-        {
-            return a / b;
-        }
+        public ICommandDispatcher Dispatcher { get; set; }
     }
 }
